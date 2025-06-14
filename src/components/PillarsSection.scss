@@ -1,0 +1,222 @@
+.pillars-section {
+  width: 100%;
+  max-width: 1100px;
+  margin: 5rem auto 2.2rem auto;
+  padding: 0 1.5rem;
+  position: relative;
+  h2 {
+    font-size: 1.13rem;
+    color: #888;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 0.3rem;
+    text-align: left;
+  }
+  h3 {
+    font-size: 1.55rem;
+    font-weight: 600;
+    margin-bottom: 1.3rem;
+    text-align: left;
+    span {
+      color: #e48c5e;
+      font-style: italic;
+      font-weight: 700;
+    }
+  }
+  .pillars-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-bottom: 1.7rem;
+    justify-content: flex-start;
+    button {
+      background: #f5f7fa;
+      border: none;
+      border-radius: 22px;
+      padding: 0.55rem 1.3rem;
+      font-size: 1.01rem;
+      color: #222;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+      &.active {
+        background: #222;
+        color: #fff;
+      }
+    }
+  }
+  .pillars-scroll-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 2rem auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .arrow-gradient {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 300px;
+      height: 150px;
+      background: radial-gradient(circle, rgba(0, 188, 212, 0.1) 0%, rgba(255, 255, 255, 0) 80%);
+      border-radius: 50%;
+      z-index: -1;
+    }
+
+    .pillars-cards {
+      display: flex;
+      gap: 1.7rem;
+      overflow-x: scroll;
+      scroll-behavior: smooth;
+      padding-bottom: 0.5rem;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      align-items: stretch;
+      scroll-snap-type: x mandatory;
+    }
+  }
+  .pillars-cards::-webkit-scrollbar {
+    display: none;
+  }
+  .pillars-arrow {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 50%;
+    width: 38px;
+    height: 55px;
+    font-size: 1.5rem;
+    color: #888;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    transition: background 0.2s, color 0.2s;
+    &:hover:not(:disabled) {
+      background: #f5f7fa;
+      color: #1976d2;
+    }
+    &:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+    position: absolute;
+    top: -175px;
+    transform: translateY(-50%);
+    z-index: 3;
+    &.left {
+      right: 70px;
+      left: auto;
+    }
+    &.right {
+      right: 0;
+      left: auto;
+    }
+  }
+  .pillar-card {
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    min-width: 320px;
+    max-width: 320px;
+    flex: 0 0 320px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    overflow: hidden;
+    scroll-snap-align: start;
+
+    .pillar-card-image {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 20px 20px 0 0;
+    }
+
+    .pillar-content {
+      padding: 1.7rem 1.3rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      flex-grow: 1;
+      width: 100%;
+    }
+
+    .pillar-icon {
+      font-size: 2.3rem;
+      margin-bottom: 0.8rem;
+    }
+    .pillar-value {
+      background: #f5f7fa;
+      color: #1976d2;
+      font-weight: 600;
+      border-radius: 13px;
+      padding: 0.22rem 0.85rem;
+      font-size: 1.01rem;
+      margin-bottom: 0.55rem;
+      display: inline-block;
+    }
+    .pillar-title {
+      font-size: 1.13rem;
+      font-weight: 700;
+      margin-bottom: 0.33rem;
+    }
+    .pillar-desc {
+      color: #666;
+      font-size: 1.01rem;
+      margin-top: 0.22rem;
+    }
+  }
+
+  .pillar-card.active {
+    border: none;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  }
+
+  @media (max-width: 900px) {
+    margin-top: 350px;
+    padding: 0 1.5rem;
+    .pillars-tabs {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      padding-bottom: 10px;
+      justify-content: flex-start;
+      margin-bottom: 1.2rem;
+      width: 100%;
+      padding: 0;
+      button {
+        flex-shrink: 0;
+        white-space: nowrap;
+      }
+    }
+    .pillars-scroll-wrapper {
+      padding: 0;
+      max-width: 100%;
+    }
+    .pillars-cards {
+      flex-direction: row;
+      gap: 1.5rem;
+      padding-left: 0;
+      padding-right: 0;
+    }
+    .pillar-card {
+      min-width: 280px;
+      max-width: 280px;
+      flex-shrink: 0;
+
+      &.elevated {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+      }
+    }
+    .pillars-arrow {
+      display: none;
+    }
+  }
+} 
